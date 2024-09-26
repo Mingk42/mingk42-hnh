@@ -8,7 +8,14 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    from PIL import Image
+
+    img = Image.open("./img/0_1.png")
+
+    return {
+        "Conn" : "ok",
+        "img": img
+    }
 
 @app.post("/uploadfile/")
 async def create_upload_file(file: UploadFile):
